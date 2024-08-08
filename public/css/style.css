@@ -1,0 +1,261 @@
+body{
+    background-color: #FFF7D9;
+}
+
+/* Hero Home */
+#hero {
+    position: relative;
+    height: 100vh; /* Sesuaikan tinggi sesuai kebutuhan */
+    padding-top: 200px;
+}
+
+#hero .container {
+    color: white;
+    position: relative;
+    z-index: 3; /* Untuk memastikan teks berada di atas gambar */
+}
+
+#hero .container h1 {
+    color: white;
+    font-size: 50px;
+    font-weight: bold;
+}
+
+#hero .container p {
+    margin-top: 50px;
+    color: white;
+    font-size: 24px;
+    font-weight: 400;
+}
+
+#hero img {
+    z-index: 1; /* Untuk memastikan gambar berada di bawah teks */
+    width: 100%; /* Menyesuaikan lebar gambar sesuai kebutuhan */
+    height: 90%; /* Menjaga rasio aspek gambar */
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+/* Hero Produk */
+#produk .container h1{
+    font-size: 50px;
+    font-weight: bold;
+}
+
+.swiper-container {
+    width: 1000px; /* Ukuran container */
+    height: 400px; /* Tinggi container */
+    margin: auto;
+}
+.swiper-wrapper {
+    display: flex;
+    align-items: center;
+}
+.swiper-slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 200px; /* Ukuran slide */
+    height: 200px; /* Ukuran slide */
+    margin: 0 2px; /* Jarak horizontal antara slide */
+}
+.box {
+    text-align: center;
+    width: 350px;
+    height: 350px;
+    border-radius: 10px;
+}
+.box img {
+    width: 250px; /* Ukuran gambar mengikuti ukuran box */
+    height: 250px; /* Ukuran gambar mengikuti ukuran box */
+    object-fit: cover; /* Menyesuaikan gambar agar sesuai dengan ukuran */
+    transition: box-shadow 0.3s ease; /* Transisi bayangan */
+    border-radius: 20px;
+}
+/* Gambar aktif */
+.swiper-slide-active .box img {
+    box-shadow: 0 0 10px 10px rgba(1, 95, 1, 0.8); /* Bayangan hijau saat aktif */
+    transform: scale(1.2); /* Skala gambar aktif */
+    filter: none; /* Tidak ada efek blur pada gambar aktif */
+    z-index: 10;
+}
+
+/* Gambar sebelumnya dan sesudah */
+.swiper-slide-prev .box img,
+.swiper-slide-next .box img {
+    opacity: 0.5; /* Transparansi gambar */
+    filter: blur(1px) grayscale(10%); /* Blur dan grayscale pada gambar */
+    transition: width 0.3s ease, height 0.3s ease, opacity 0.3s ease, filter 0.3s ease; /* Transisi perubahan */
+    z-index: 5;
+    transform: scale(0.8);
+}
+
+/* Gambar yang tidak aktif */
+.swiper-slide:not(.swiper-slide-active):not(.swiper-slide-prev):not(.swiper-slide-next) .box img {
+    filter: blur(1px) grayscale(10%); /* Blur dan grayscale pada gambar yang tidak aktif */
+    opacity: 0.6; /* Opasitas untuk gambar yang tidak aktif */
+    transform: scale(0.8);
+}
+
+.btn{
+    margin-top: -10px;
+    background-color: #003406;
+    color: #FFFFFF;
+    box-shadow: 0 1px 20px 6px #01B810;
+    border-radius: 20px;
+    width: 380px;
+    font-size: 20px;
+}
+
+/* media */
+#media {
+    position: relative;
+    margin-top: 20px;
+}
+
+#media .container {
+    position: relative;
+    z-index: 2; /* Pastikan kontainer berada di depan gambar */
+}
+#media .container {
+    position: relative;
+    z-index: 2; /* Pastikan kontainer berada di depan gambar */
+}
+
+#media .jdl-media {
+    text-align: center;
+    align-items: center;
+    align-content: center;
+    color: white;
+    font-size: 50px;
+    font-weight: bold;
+    z-index: 3; /* Pastikan teks berada di depan kontainer */
+}
+
+#media img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200vh;
+    height: 940px;
+    z-index: 1; /* Pastikan gambar berada di belakang kontainer */
+}
+
+#media .gmbr{
+    width: 250px;
+    height: 250px;
+    overflow: hidden;
+}
+
+#media .dtlGmbr{
+    margin-top: 30px;
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    margin-left: 25px;
+    border-radius: 20px;
+} 
+
+#media .dtlBerita{
+    margin-top: 30px;
+    color: #FFFFFF;
+}
+
+/* galeri */
+
+#carouselExampleInterval .carousel-inner{
+    border-radius:50px ;   
+}
+
+#carouselExampleInterval .carousel-img {
+    width: 100%;
+    height: 700px; /* Sesuaikan dengan tinggi yang diinginkan */
+    object-fit: cover; /* Agar gambar tidak terdistorsi */
+}
+
+#galeri .jdl-media{
+    text-align: center;
+    align-items: center;
+    align-content: center;
+    color: black;
+    font-size: 50px;
+    font-weight: bold;
+}
+
+/* produk */
+#produkPage .card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    height: 370px;
+    background-color: white;
+    padding: 10px;
+    box-sizing: border-box;
+    border-radius: 15px;
+    transition: box-shadow 0.3s ease;
+}
+
+#produkPage .card:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+#produkPage img {
+    border-radius: 10px 10px 0 0;
+    margin: -1px 5px -1px 5px; /* Add consistent margin around the image */
+    width: 190px;
+    height: 190px;
+}
+
+#produkPage h5, #produkPage p {
+    text-align: center;
+}
+
+#produkPage .col-md-2 {
+    display: flex;
+    justify-content: center;
+}
+
+/* detail Produk */
+#detailProduk img{
+    width: 500px;
+    height: 500px;
+    border-radius: 10px;
+}
+
+#detailProduk .container-fluid{
+    margin-left: -20px;
+}
+
+#detailProduk .btn{
+    box-shadow: 3px 2px 10px 2px  #01B810;
+}
+
+#detailProduk .back{
+    margin-top: 50px;
+    text-align: center;
+}
+
+/* media */
+#berita .content {
+    margin-top: 100px;
+    border-radius: 30px;
+    background-color: #01B810;
+    height: 500px;
+    position: relative;
+    overflow: hidden;
+}
+
+#berita .content img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 30px;
+}
+
+
+
