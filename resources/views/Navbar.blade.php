@@ -27,8 +27,7 @@
     <div class="container-fluid">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">
-                <img src="img/Logo.png" alt="" width="55" height="55"
-                    class="d-inline-block align-text-top me-2">
+                <img src="{{ asset('img/Logo.png') }}" alt="" width="55" height="55" class="d-inline-block align-text-top me-2">
                 Maggot Center Pasuruan
             </a>
         </div>

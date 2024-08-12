@@ -1,6 +1,8 @@
 <?php
 
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,13 +15,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('homeScreen');
-});
-
-Route::get('/produk', function () {
-    return view('produk');
-});
+Route::get('/', [HomeController::class, 'indexs']);
 
 Route::get('/detailProduk', function () {
     return view('detailProduk');
@@ -28,3 +24,13 @@ Route::get('/detailProduk', function () {
 Route::get('/media', function () {
     return view('media');
 });
+
+Route::get('/cekProduk', [HomeController::class, 'index'])->name('cek');
+Route::get('/cek/{uid}', [HomeController::class, 'produkHome'])->name('produk.show');
+
+
+Route::get('/produk/{id}', [HomeController::class, 'show'])->name('produk');
+
+Route::get('detail-produk/{id}', [HomeController::class, 'show'])->name('detailProduk');
+
+

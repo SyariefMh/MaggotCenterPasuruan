@@ -21,60 +21,60 @@
                     <h1>Produk</h1>
                     <p>Produk olahan yang dihasilkan Maggot Center Pasuruan</p>
                 </div>
-                <div class="isi">
-                    <div class="row-3 d-flex">
-                        <div class="col-md-2 mb-3 p-1">
-                            <div class="card">
-                                <img src="img/produk1.jpg" alt="" srcset="">
-                                <h5>Produk1</h5>
-                                <p>Lorem ipsum dolor sit amet</p>
-                                <h5>Rp. 100.000</h5>
-                            </div>
-                        </div>
-                        <div class="col-md-2 mb-3 p-1">
-                            <div class="card">
-                                <img src="img/produk1.jpg" alt="" srcset="">
-                                <h5>Produk1</h5>
-                                <p>Lorem ipsum dolor sit amet</p>
-                                <h5>Rp. 100.000</h5>
-                            </div>
-                        </div>
-                        <div class="col-md-2 mb-3 p-1">
-                            <div class="card">
-                                <img src="img/produk1.jpg" alt="" srcset="">
-                                <h5>Produk1</h5>
-                                <p>Lorem ipsum dolor sit amet</p>
-                                <h5>Rp. 100.000</h5>
-                            </div>
-                        </div>
-                        <div class="col-md-2 mb-3 p-1">
-                            <div class="card">
-                                <img src="img/produk1.jpg" alt="" srcset="">
-                                <h5>Produk1</h5>
-                                <p>Lorem ipsum dolor sit amet</p>
-                                <h5>Rp. 100.000</h5>
-                            </div>
-                        </div>
-                        <div class="col-md-2 mb-3 p-1">
-                            <div class="card">
-                                <img src="img/produk1.jpg" alt="" srcset="">
-                                <h5>Produk1</h5>
-                                <p>Lorem ipsum dolor sit amet</p>
-                                <h5>Rp. 100.000</h5>
-                            </div>
-                        </div>
-                        <div class="col-md-2 mb-3 p-1">
-                            <div class="card">
-                                <img src="img/produk1.jpg" alt="" srcset="">
-                                <h5>Produk1</h5>
-                                <p>Lorem ipsum dolor sit amet</p>
-                                <h5>Rp. 100.000</h5>
-                            </div>
+                <div class="col-12">
+                    <div class="isi">
+                        <div class="semua row d-flex flex-wrap">
+                            @foreach ($data as $item)
+                                <div class="col-md-2 mb-2 p-1">
+                                    <a href="{{ route('detailProduk', ['id' => $item->UID_Produk]) }}" class="text-decoration-none text-dark">
+                                        <div class="card">
+                                            <img src="{{ url('https://maggotapi.arriansoft.com/public/' . $item->Gambar) }}"
+                                                alt="{{ $item->Nama }}" width="100">
+                                            <h5 style="margin-top: 20px">{{ $item->Nama }}</h5>
+                
+                                            @php
+                                                $words = explode(' ', $item->Deskripsi);
+                                                $shortenedDescription =
+                                                    count($words) > 5
+                                                        ? implode(' ', array_slice($words, 0, 5)) . '...'
+                                                        : $item->Deskripsi;
+                                            @endphp
+                                            <p>{{ $shortenedDescription }}</p>
+                
+                                            <h5>Rp. {{ number_format($item->Harga, 0, ',', '.') }}</h5>
+                                        </div>
+                                    </a>
+                                </div>
+                            @endforeach
                         </div>
                     </div>
-                    
                 </div>
-            </div>
+                
+      
+
+            {{-- <div class="col-md-2 mb-3 p-1">
+                    <a href="{{ route('detailProduk', ['id' => $item->UID_Produk]) }}" class="text-decoration-none text-dark">
+                        <div class="card" style="margin: 10px;">
+                            <img src="{{ url('https://maggotapi.arriansoft.com/public/' . $item->Gambar) }}"
+                                alt="{{ $item->Nama }}" width="100">
+                            <h5 style="margin-top: 20px">{{ $item->Nama }}</h5>
+                            
+                            @php
+                                $words = explode(' ', $item->Deskripsi);
+                                $shortenedDescription =
+                                    count($words) > 5
+                                        ? implode(' ', array_slice($words, 0, 5)) . '...'
+                                        : $item->Deskripsi;
+                            @endphp
+                            <p>{{ $shortenedDescription }}</p>
+                            
+                            <h5>Rp. {{ number_format($item->Harga, 0, ',', '.') }}</h5>
+                        </div>
+                    </a>
+                </div> --}}
+
+
+        </div>
         </div>
     </section>
 </body>

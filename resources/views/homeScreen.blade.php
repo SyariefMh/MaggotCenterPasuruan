@@ -44,51 +44,40 @@
                 </div>
                 <div class="col-12" style="margin-top: 10px;">
                     {{-- carausel --}}
+                    {{-- <div class="swiper mySwiper" style="height: 500px; margin-bottom: 0">
+                        <div class="swiper-wrapper">
+                            @foreach ($data as $item)
+                                <div class="swiper-slide">
+                                    <div class="box">
+                                        <img src="{{ url('https://maggotapi.arriansoft.com/public/' . $item->Gambar) }}"
+                                            style="max-height: 100%; max-width: 100%; object-fit: cover;">
+                                    </div>
+                                </div>
+                            @endforeach
+                        </div>
+                    </div> --}}
                     <div class="swiper mySwiper" style="height: 500px; margin-bottom: 0">
                         <div class="swiper-wrapper">
-                            <div class="swiper-slide">
-                                <div class="box">
-                                    <img src="img/produk1.jpg" alt="">
+                            @foreach ($data as $item)
+                                <div class="swiper-slide">
+                                    <div class="box">
+                                        <a href="{{ route('produk.show' ,$item->UID_Produk) }}">
+                                            <img src="{{ url('https://maggotapi.arriansoft.com/public/' . $item->Gambar) }}"
+                                                style="max-height: 100%; max-width: 100%; object-fit: cover;">
+                                        </a>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="box">
-                                    <img src="img/produk2.jpg" alt="">
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="box">
-                                    <img src="img/produk3.jpg" alt="">
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="box">
-                                    <img src="img/produk4.jpg" alt="">
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="box">
-                                    <img src="img/produk5.jpg" alt="">
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="box">
-                                    <img src="img/produk1.jpg" alt="">
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="box">
-                                    <img src="img/produk2.jpg" alt="">
-                                </div>
-                            </div>
+                            @endforeach
                         </div>
                         {{-- <div class="swiper-pagination" style="margin-top: 5px"></div> --}}
                     </div>
+                    
                     <div class="container-fluid full-height d-flex justify-content-center align-items-center">
                         <div class="col-12 text-center">
                             <button type="button" class="btn">Lihat Detail Produk</button>
                         </div>
                     </div>
+
                     {{-- end carausel --}}
                 </div>
             </div>

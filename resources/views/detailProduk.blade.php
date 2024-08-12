@@ -19,15 +19,12 @@
             <div class="row h-100">
                 <div class="container d-flex justify-content-center">
                     <div class="col-5 d-flex" style="margin-top: 120px;">
-                        <img src="img/produk1.jpg" alt="" srcset="">
+                        <img src={{ url('https://maggotapi.arriansoft.com/public/' . $data->Gambar) }}>
                     </div>
                     <div class="col-6 justify-content-start" style="margin-top: 150px;margin-left: 20px">
-                        <h1 class="jdl-produk" style="font-weight: bold">Maggot 1</h1>
-                        <h2 class="harga" style="margin-top: 50px">Rp. 100.000</h2>
-                        <p class="dtlProduk" style="margin-top: 50px">Lorem ipsum dolor, sit amet consectetur
-                            adipisicing elit. Itaque laudantium, in ipsam minus est saepe expedita reiciendis. Fugit
-                            neque iste voluptatibus aliquid a itaque dolores quam in numquam? Exercitationem similique
-                            mollitia praesentium, consequuntur vel et ipsum optio modi adipisci reprehenderit.</p>
+                        <h1 class="jdl-produk" style="font-weight: bold">{{ $data->Nama }}</h1>
+                        <h2 class="harga" style="margin-top: 50px">Rp. {{ number_format($data->Harga, 0, ',', '.') }}</h2>
+                        <p class="dtlProduk" style="margin-top: 50px">{{ $data->Deskripsi }}</p>
                         <div class="container-fluid d-flex">
                             <div class="col-6" style="margin-top: 130px">
                                 <button type="button" class="btn" style="border-radius: 0">Pesan Melalui
