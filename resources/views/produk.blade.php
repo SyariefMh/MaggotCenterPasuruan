@@ -24,11 +24,11 @@
                 <div class="col-12">
                     <div class="isi">
                         <div class="semua row d-flex flex-wrap">
-                            @foreach ($data as $item)
+                            @foreach ($data_produk as $item)
                                 <div class="col-md-2 mb-2 p-1">
-                                    <a href="{{ route('detailProduk', ['id' => $item->UID_Produk]) }}" class="text-decoration-none text-dark">
+                                    <a href="{{ route('produk.show', ['uid' => $item->UID_Produk]) }}" class="text-decoration-none text-dark">
                                         <div class="card">
-                                            <img src="{{ url('https://maggotapi.arriansoft.com/public/' . $item->Gambar) }}"
+                                            <img src="{{ url('https://maggotapi.arriansoft.com/' . $item->Gambar) }}"
                                                 alt="{{ $item->Nama }}" width="100">
                                             <h5 style="margin-top: 20px">{{ $item->Nama }}</h5>
                 

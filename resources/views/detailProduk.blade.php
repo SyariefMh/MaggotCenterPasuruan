@@ -19,7 +19,7 @@
             <div class="row h-100">
                 <div class="container d-flex justify-content-center">
                     <div class="col-5 d-flex" style="margin-top: 120px;">
-                        <img src={{ url('https://maggotapi.arriansoft.com/public/' . $data->Gambar) }}>
+                        <img src={{ url('https://maggotapi.arriansoft.com/' . $data->Gambar) }}>
                     </div>
                     <div class="col-6 justify-content-start" style="margin-top: 150px;margin-left: 20px">
                         <h1 class="jdl-produk" style="font-weight: bold">{{ $data->Nama }}</h1>

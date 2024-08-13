@@ -1,64 +1,67 @@
 <style>
     #footer {
-    position: relative;
-    z-index: 2; /* memastikan seluruh konten berada di atas background */
-}
+        position: relative;
+        z-index: 2;
+        /* memastikan seluruh konten berada di atas background */
+    }
 
-.background-image {
-    position: absolute;
-    top: 40%;
-    left: 50%;
-    width: 200vh;
-    height: 350px;
-    transform: translate(-50%, -50%);
-    z-index: 1; /* memastikan background berada di belakang semua konten */
-}
+    .background-image {
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        width: 200vh;
+        height: 350px;
+        transform: translate(-50%, -50%);
+        z-index: 1;
+        /* memastikan background berada di belakang semua konten */
+    }
 
-#footer .container {
-    z-index: 2;
-    margin-top: 150px; /* sesuaikan jika diperlukan */
-}
+    #footer .container {
+        z-index: 2;
+        margin-top: 150px;
+        /* sesuaikan jika diperlukan */
+    }
 
-#footer .col-md-4 {
-    z-index: 3;
-    color: white;
-}
+    #footer .col-md-4 {
+        z-index: 3;
+        color: white;
+    }
 
-#footer .lokasi img {
-    width: 49px;
-    height: 49px;
-    z-index: 4;
-}
+    #footer .lokasi img {
+        width: 49px;
+        height: 49px;
+        z-index: 4;
+    }
 
-#footer .lokasi p {
-    color: white;
-    margin-left: 10px;
-    z-index: 4;
-}
+    #footer .lokasi p {
+        color: white;
+        margin-left: 10px;
+        z-index: 4;
+    }
 
-#footer .whatsapp img {
-    width: 49px;
-    height: 49px;
-    z-index: 4;
-}
+    #footer .whatsapp img {
+        width: 49px;
+        height: 49px;
+        z-index: 4;
+    }
 
-#footer .whatsapp p {
-    color: white;
-    margin-left: 10px;
-    z-index: 4;
-}
+    #footer .whatsapp p {
+        color: white;
+        margin-left: 10px;
+        z-index: 4;
+    }
 
-#footer .instagram img {
-    width: 49px;
-    height: 49px;
-    z-index: 4;
-}
+    #footer .instagram img {
+        width: 49px;
+        height: 49px;
+        z-index: 4;
+    }
 
-#footer .instagram p {
-    color: white;
-    margin-left: 10px;
-    z-index: 4;
-}
+    #footer .instagram p {
+        color: white;
+        margin-left: 10px;
+        z-index: 4;
+    }
 </style>
 
 {{-- Section Footer Start --}}
@@ -68,18 +71,60 @@
         <div class="row">
             <div class="col-md-4 mb-4">
                 <h5>Sejarah</h5>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed
-                    cursus ante dapibus diam.</p>
+                <p>
+                    @php
+                        $words = explode(' ', $data_foter[0]['Deskripsi']);
+                        $shortenedDescription =
+                            count($words) > 25 ? implode(' ', array_slice($words, 0, 25)) . '...' : $item->Deskripsi;
+                    @endphp
+                <p>{{ $shortenedDescription }}</p>
+                {{-- {{ $data_foter[0]['Deskripsi'] }} --}}
+                </p>
             </div>
             <div class="col-md-4 mb-4">
                 <h5>Visi</h5>
-                <p>Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce
-                    nec tellus sed augue semper porta.</p>
+                <p>
+                    @php
+                        // Filter untuk mengambil hanya data dengan Nama 'visi'
+                        $visiData = collect($data_foter)->firstWhere('Nama', 'visi');
+
+                        // Jika data ditemukan, lanjutkan pemrosesan deskripsi
+                        if ($visiData) {
+                            $words = explode(' ', $visiData['Deskripsi']);
+                            $shortenedDescriptionvisi =
+                                count($words) > 25
+                                    ? implode(' ', array_slice($words, 0, 25)) . '...'
+                                    : $visiData['Deskripsi'];
+                        } else {
+                            $shortenedDescriptionvisi = 'Data visi tidak ditemukan.';
+                        }
+                    @endphp
+
+                <p>{{ $shortenedDescriptionvisi }}</p>
+                </p>
             </div>
             <div class="col-md-4 mb-4">
                 <h5>Misi</h5>
-                <p>Maecenas tincidunt lacus at velit. Vivamus vel nulla eget eros elementum pellentesque. Quisque
-                    porta. Nulla vitae elit libero, a pharetra augue.</p>
+                <p>
+                    @php
+                        // Filter untuk mengambil hanya data dengan Nama 'visi'
+                        $misiData = collect($data_foter)->firstWhere('Nama', 'misi');
+
+                        // Jika data ditemukan, lanjutkan pemrosesan deskripsi
+                        if ($misiData) {
+                            $words = explode(' ', $misiData['Deskripsi']);
+                            $shortenedDescriptionvisi =
+                                count($words) > 25
+                                    ? implode(' ', array_slice($words, 0, 25)) . '...'
+                                    : $misiData['Deskripsi'];
+                        } else {
+                            $shortenedDescriptionvisi = 'Data visi tidak ditemukan.';
+                        }
+                    @endphp
+
+                <p>{{ $shortenedDescriptionvisi }}</p>
+
+                </p>
             </div>
         </div>
         <div class="container d-flex" style="margin-top: 0">

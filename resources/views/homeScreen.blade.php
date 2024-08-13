@@ -45,24 +45,24 @@
                 <div class="col-12" style="margin-top: 10px;">
                     {{-- carausel --}}
                     {{-- <div class="swiper mySwiper" style="height: 500px; margin-bottom: 0">
-                        <div class="swiper-wrapper">
-                            @foreach ($data as $item)
-                                <div class="swiper-slide">
-                                    <div class="box">
-                                        <img src="{{ url('https://maggotapi.arriansoft.com/public/' . $item->Gambar) }}"
-                                            style="max-height: 100%; max-width: 100%; object-fit: cover;">
+                            <div class="swiper-wrapper">
+                                @foreach ($data as $item)
+                                    <div class="swiper-slide">
+                                        <div class="box">
+                                            <img src="{{ url('https://maggotapi.arriansoft.com/public/' . $item->Gambar) }}"
+                                                style="max-height: 100%; max-width: 100%; object-fit: cover;">
+                                        </div>
                                     </div>
-                                </div>
-                            @endforeach
-                        </div>
-                    </div> --}}
+                                @endforeach
+                            </div>
+                        </div> --}}
                     <div class="swiper mySwiper" style="height: 500px; margin-bottom: 0">
                         <div class="swiper-wrapper">
-                            @foreach ($data as $item)
+                            @foreach ($data_produk as $item)
                                 <div class="swiper-slide">
                                     <div class="box">
-                                        <a href="{{ route('produk.show' ,$item->UID_Produk) }}">
-                                            <img src="{{ url('https://maggotapi.arriansoft.com/public/' . $item->Gambar) }}"
+                                        <a href="{{ route('produk.show', $item->UID_Produk) }}">
+                                            <img src="{{ url('https://maggotapi.arriansoft.com/' . $item->Gambar) }}"
                                                 style="max-height: 100%; max-width: 100%; object-fit: cover;">
                                         </a>
                                     </div>
@@ -71,12 +71,15 @@
                         </div>
                         {{-- <div class="swiper-pagination" style="margin-top: 5px"></div> --}}
                     </div>
-                    
+
                     <div class="container-fluid full-height d-flex justify-content-center align-items-center">
                         <div class="col-12 text-center">
-                            <button type="button" class="btn">Lihat Detail Produk</button>
+                            <a href="/produk" class="text-decoration-none">
+                                <button type="button" class="btn">Lihat Detail Produk</button>
+                            </a>
                         </div>
                     </div>
+
 
                     {{-- end carausel --}}
                 </div>
@@ -92,69 +95,51 @@
                 <div class="col-12 text-center">
                     <h1 class="jdl-media" style="margin-top: 35px">MEDIA & BERITA</h1>
                 </div>
-                <div class="col-12">
-                    <div class="container h-100 d-flex">
-                        <div class="gmbr col-5">
-                            <img src="img/produk1.jpg" alt="" class="dtlGmbr">
-                        </div>
-                        <div class="dtlBerita">
-                            <h2 class="jdlBerita">Berita Terbaru</h2>
-                            <p class="dtl" style="text-align: justify">Lorem Ipsum is simply dummy text of the
-                                printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy
-                                text ever since the 1500s, when an unknown printer took a galley of type and scrambled
-                                it to make a type specimen book. It has survived not only five centuries, but also the
-                                leap into electronic typesetting, remaining essentially unchanged. It was popularised in
-                                the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more
-                                recently with desktop publishing software like Aldus PageMaker including versions of
-                                Lorem Ipsum. Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                            </p>
-                            <p>2 Agustus 2024</p>
+                @foreach ($data_media->sortByDesc('Tanggal')->take(3) as $item)
+                <a href="{{ route('media.detail', $item->UID_Berita) }}" class="text-decoration-none">
+                    <div class="col-12">
+                        <div class="container h-100 d-flex">
+                            <div class="gmbr col-5">
+                                <img src="{{ url('https://maggotapi.arriansoft.com/' . $item->Gambar) }}"
+                                    alt="" class="dtlGmbr">
+                            </div>
+                            <div class="dtlBerita">
+                                <h2 class="jdlBerita">{{ $item->Judul }}</h2>
+                                <p class="dtl" style="text-align: justify">
+                                    {{ $item->Deskripsi }}
+                                </p>
+                                <p>{{ $item->Tanggal }}</p>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-12">
-                    <div class="container h-100 d-flex">
-                        <div class="gmbr col-5">
-                            <img src="img/produk1.jpg" alt="" class="dtlGmbr">
-                        </div>
-                        <div class="dtlBerita">
-                            <h2 class="jdlBerita">Berita Terbaru</h2>
-                            <p class="dtl" style="text-align: justify">Lorem Ipsum is simply dummy text of the
-                                printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy
-                                text ever since the 1500s, when an unknown printer took a galley of type and scrambled
-                                it to make a type specimen book. It has survived not only five centuries, but also the
-                                leap into electronic typesetting, remaining essentially unchanged. It was popularised in
-                                the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more
-                                recently with desktop publishing software like Aldus PageMaker including versions of
-                                Lorem Ipsum. Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                            </p>
-                            <p>2 Agustus 2024</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12">
-                    <div class="container h-100 d-flex">
-                        <div class="gmbr col-5">
-                            <img src="img/produk1.jpg" alt="" class="dtlGmbr">
-                        </div>
-                        <div class="dtlBerita">
-                            <h2 class="jdlBerita">Berita Terbaru</h2>
-                            <p class="dtl" style="text-align: justify">Lorem Ipsum is simply dummy text of the
-                                printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy
-                                text ever since the 1500s, when an unknown printer took a galley of type and scrambled
-                                it to make a type specimen book. It has survived not only five centuries, but also the
-                                leap into electronic typesetting, remaining essentially unchanged. It was popularised in
-                                the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more
-                                recently with desktop publishing software like Aldus PageMaker including versions of
-                                Lorem Ipsum. Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                            </p>
-                            <p>2 Agustus 2024</p>
+                </a>
+                @endforeach
+
+                @foreach ($data_media->sortByDesc('Tanggal')->take(1) as $item)
+                <a href="{{ route('media.detail', $item->UID_Berita) }}" class="text-decoration-none">
+                    <div class="col-12">
+                        <div class="container h-100 d-flex">
+                            <div class="gmbr col-5">
+                                <img src="{{ url('https://maggotapi.arriansoft.com/' . $item->Gambar) }}"
+                                    alt="" class="dtlGmbr">
+                            </div>
+                            <div class="dtlBerita">
+                                <h2 class="jdlBerita">{{ $item->Judul }}</h2>
+                                <p class="dtl" style="text-align: justify">
+                                    {{ $item->Deskripsi }}
+                                </p>
+                                <p>{{ $item->Tanggal }}</p>
+                            </div>
                         </div>
                     </div>
-                </div>
+                </a>
+                @endforeach
+
                 <div class="container-fluid full-height d-flex justify-content-center align-items-center">
                     <div class="col-12 text-center" style="margin-top: 30px">
-                        <button type="button" class="btn">Lihat Berita & Media</button>
+                        <a href="/mediaAll" class="text-decoration-none">
+                            <button type="button" class="btn">Lihat Berita & Media</button>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -168,25 +153,19 @@
         <div class="container h-100">
             <div class="row h-100">
                 <div class="col-12 text-center">
-                    <h1 class="jdl-media" style="margin-top: 35px">GALERI</h1>
+                    <h1 class="jdl-media" style="margin-top: 30px">GALERI</h1>
                 </div>
                 <div class="col-12">
+                    @foreach ($data_galeri as $item)
                     <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
                         <div class="carousel-inner">
                             <div class="carousel-item active" data-bs-interval="10000"
                                 data-description="Deskripsi untuk slide 1">
-                                <img src="img/produk1.jpg" class="d-block w-100 carousel-img" alt="...">
-                            </div>
-                            <div class="carousel-item" data-bs-interval="2000"
-                                data-description="Deskripsi untuk slide 2">
-                                <img src="img/produk2.jpg" class="d-block w-100 carousel-img" alt="...">
-                            </div>
-                            <div class="carousel-item" data-description="Deskripsi untuk slide 3">
-                                <img src="img/produk3.jpg" class="d-block w-100 carousel-img" alt="...">
+                                <img src={{ url('https://maggotapi.arriansoft.com/' . $item->Gambar) }} class="d-block w-100 carousel-img" alt="...">
                             </div>
                         </div>
-                        <button class="carousel-control-prev" type="button"
-                            data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval"
+                            data-bs-slide="prev">
                             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                             <span class="visually-hidden">Previous</span>
                         </button>
@@ -198,10 +177,11 @@
                     </div>
                     <div class="row justify-content-center align-items-center text-center mt-4">
                         <div class="col-auto">
-                            <h1 id="gallery-description-title">Keterangan Galeri</h1>
-                            <p id="gallery-description">Deskripsi untuk slide 1</p>
+                            <h1 id="gallery-description-title">{{ $item->Judul }}</h1>
+                            <p id="gallery-description">{{ $item->Deskripsi }}</p>
                         </div>
                     </div>
+                    @endforeach
                 </div>
             </div>
         </div>

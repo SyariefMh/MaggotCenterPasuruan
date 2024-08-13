@@ -17,20 +17,10 @@ use App\Http\Controllers\HomeController;
 
 Route::get('/', [HomeController::class, 'indexs']);
 
-Route::get('/detailProduk', function () {
-    return view('detailProduk');
-});
 
-Route::get('/media', function () {
-    return view('media');
-});
-
-Route::get('/cekProduk', [HomeController::class, 'index'])->name('cek');
-Route::get('/cek/{uid}', [HomeController::class, 'produkHome'])->name('produk.show');
+Route::get('/produk', [HomeController::class, 'index'])->name('produk');
+Route::get('/detail-produk/{uid}', [HomeController::class, 'produkHome'])->name('produk.show');
 
 
-Route::get('/produk/{id}', [HomeController::class, 'show'])->name('produk');
-
-Route::get('detail-produk/{id}', [HomeController::class, 'show'])->name('detailProduk');
-
-
+Route::get('/mediaAll', [HomeController::class, 'mediaAll'])->name('mediaAll');
+Route::get('/media-detail/{uid}', [HomeController::class, 'media'])->name('media.detail');
