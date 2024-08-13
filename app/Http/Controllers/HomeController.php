@@ -17,6 +17,7 @@ class HomeController extends Controller
         $response_foter = Http::withToken($token)->get('https://maggotapi.arriansoft.com/api/getAllInterface');
         $response_media = Http::withToken($token)->get('https://maggotapi.arriansoft.com/api/getAllBerita');
         $response_galeri = Http::withToken($token)->get('https://maggotapi.arriansoft.com/api/getAllGaleri');
+        $response_galeri = Http::withToken($token)->get('https://maggotapi.arriansoft.com/api/getAllGaleri');
 
         if ($response_produk->successful() && $response_foter->successful() && $response_media->successful() && $response_galeri->successful()) {
             $produk = $response_produk->json()['data'];
