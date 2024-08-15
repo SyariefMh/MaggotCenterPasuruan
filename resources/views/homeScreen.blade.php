@@ -23,7 +23,7 @@
 
 
     <div id="wa-bubble" class="wa-bubble" style="position: fixed; z-index: 1000;bottom: 20px; left: 50px">
-        <a href="https://wa.me/081906153376" target="_blank">
+        <a href="https://wa.me/+6281906153376" target="_blank">
             <img src="img/Bubble WA.png" alt="WhatsApp" style="">
         </a>
     </div>

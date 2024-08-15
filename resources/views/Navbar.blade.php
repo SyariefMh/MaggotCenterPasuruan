@@ -34,19 +34,19 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto d-flex flex-row flex-wrap" style="width: 600px">
                 <li class="nav-item me-3">
-                    <a class="nav-link active" aria-current="page" href="#hero">Home</a>
+                    <a class="nav-link active" aria-current="page" href="{{ url('/') }}#hero">Home</a>
                 </li>
                 <li class="nav-item me-3">
-                    <a class="nav-link" href="#produk">Produk</a>
+                    <a class="nav-link" href="{{ url('/') }}#produk">Produk</a>
                 </li>
                 <li class="nav-item me-3">
-                    <a class="nav-link" href="#media">Media & Galeri</a>
+                    <a class="nav-link" href="{{ url('/') }}#media">Media & Galeri</a>
                 </li>
                 <li class="nav-item me-3">
-                    <a class="nav-link" href="#galeri">Galeri</a>
+                    <a class="nav-link" href="{{ url('/') }}#galeri">Galeri</a>
                 </li>
                 <li class="nav-item me-3">
-                    <a class="nav-link" href="#footer">Tentang Kami</a>
+                    <a class="nav-link" href="{{ url('/') }}#footer">Tentang Kami</a>
                 </li>
             </ul>
         </div>
