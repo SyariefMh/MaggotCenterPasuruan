@@ -21,6 +21,14 @@
 <body>
     @include('Navbar')
 
+
+    <div id="wa-bubble" class="wa-bubble" style="position: fixed; z-index: 1000;bottom: 20px; left: 50px">
+        <a href="https://wa.me/081906153376" target="_blank">
+            <img src="img/Bubble WA.png" alt="WhatsApp" style="">
+        </a>
+    </div>
+
+
     <!-- Hero Section -->
     <section id="hero">
         <div class="container h-100">
@@ -96,43 +104,23 @@
                     <h1 class="jdl-media" style="margin-top: 35px">MEDIA & BERITA</h1>
                 </div>
                 @foreach ($data_media->sortByDesc('Tanggal')->take(3) as $item)
-                <a href="{{ route('media.detail', $item->UID_Berita) }}" class="text-decoration-none">
-                    <div class="col-12">
-                        <div class="container h-100 d-flex">
-                            <div class="gmbr col-5">
-                                <img src="{{ url('https://maggotapi.arriansoft.com/' . $item->Gambar) }}"
-                                    alt="" class="dtlGmbr">
-                            </div>
-                            <div class="dtlBerita">
-                                <h2 class="jdlBerita">{{ $item->Judul }}</h2>
-                                <p class="dtl" style="text-align: justify">
-                                    {{ $item->Deskripsi }}
-                                </p>
-                                <p>{{ $item->Tanggal }}</p>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-                @endforeach
-
-                @foreach ($data_media->sortByDesc('Tanggal')->take(1) as $item)
-                <a href="{{ route('media.detail', $item->UID_Berita) }}" class="text-decoration-none">
-                    <div class="col-12">
-                        <div class="container h-100 d-flex">
-                            <div class="gmbr col-5">
-                                <img src="{{ url('https://maggotapi.arriansoft.com/' . $item->Gambar) }}"
-                                    alt="" class="dtlGmbr">
-                            </div>
-                            <div class="dtlBerita">
-                                <h2 class="jdlBerita">{{ $item->Judul }}</h2>
-                                <p class="dtl" style="text-align: justify">
-                                    {{ $item->Deskripsi }}
-                                </p>
-                                <p>{{ $item->Tanggal }}</p>
+                    <a href="{{ route('media.detail', $item->UID_Berita) }}" class="text-decoration-none">
+                        <div class="col-12">
+                            <div class="container h-100 d-flex">
+                                <div class="gmbr col-5">
+                                    <img src="{{ url('https://maggotapi.arriansoft.com/' . $item->Gambar) }}"
+                                        alt="" class="dtlGmbr">
+                                </div>
+                                <div class="dtlBerita">
+                                    <h2 class="jdlBerita">{{ $item->Judul }}</h2>
+                                    <p class="dtl" style="text-align: justify">
+                                        {{ $item->Deskripsi }}
+                                    </p>
+                                    <p>{{ $item->Tanggal }}</p>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </a>
+                    </a>
                 @endforeach
 
                 <div class="container-fluid full-height d-flex justify-content-center align-items-center">
@@ -157,30 +145,31 @@
                 </div>
                 <div class="col-12">
                     @foreach ($data_galeri as $item)
-                    <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
-                        <div class="carousel-inner">
-                            <div class="carousel-item active" data-bs-interval="10000"
-                                data-description="Deskripsi untuk slide 1">
-                                <img src={{ url('https://maggotapi.arriansoft.com/' . $item->Gambar) }} class="d-block w-100 carousel-img" alt="...">
+                        <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
+                            <div class="carousel-inner">
+                                <div class="carousel-item active" data-bs-interval="10000"
+                                    data-description="Deskripsi untuk slide 1">
+                                    <img src={{ url('https://maggotapi.arriansoft.com/' . $item->Gambar) }}
+                                        class="d-block w-100 carousel-img" alt="...">
+                                </div>
+                            </div>
+                            <button class="carousel-control-prev" type="button"
+                                data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button"
+                                data-bs-target="#carouselExampleInterval" data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                            </button>
+                        </div>
+                        <div class="row justify-content-center align-items-center text-center mt-4">
+                            <div class="col-auto">
+                                <h1 id="gallery-description-title">{{ $item->Judul }}</h1>
+                                <p id="gallery-description">{{ $item->Deskripsi }}</p>
                             </div>
                         </div>
-                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval"
-                            data-bs-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Previous</span>
-                        </button>
-                        <button class="carousel-control-next" type="button"
-                            data-bs-target="#carouselExampleInterval" data-bs-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Next</span>
-                        </button>
-                    </div>
-                    <div class="row justify-content-center align-items-center text-center mt-4">
-                        <div class="col-auto">
-                            <h1 id="gallery-description-title">{{ $item->Judul }}</h1>
-                            <p id="gallery-description">{{ $item->Deskripsi }}</p>
-                        </div>
-                    </div>
                     @endforeach
                 </div>
             </div>

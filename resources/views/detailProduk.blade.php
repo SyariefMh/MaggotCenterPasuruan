@@ -36,9 +36,9 @@
             </div>
         </div>
         <div class="container h-100 d-flex justify-content-center align-items-center">
-            <div class="back">
-                <p>Kembali</p>
-            </div>
+            <a href="/produk" class="back">
+                <img src="{{ asset('img/BtnBack.png') }}" alt="" srcset="" style="width: 90px; height: 50px;">
+            </a>
         </div>
     </section>
 </body>
