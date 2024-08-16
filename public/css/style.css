@@ -260,5 +260,19 @@ body{
     border-radius: 30px;
 }
 
+/* sejarah */
+#sejarah .jdl-sejarah{
+    margin-top: 100px;
+}
+
+#sejarah p{
+    text-align: justify;
+    text-align-last:center ;
+}
+
+#sejarah h1{
+    text-transform: capitalize;
+}
+
 
 

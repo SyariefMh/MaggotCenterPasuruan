@@ -24,3 +24,5 @@ Route::get('/detail-produk/{uid}', [HomeController::class, 'produkHome'])->name(
 
 Route::get('/mediaAll', [HomeController::class, 'mediaAll'])->name('mediaAll');
 Route::get('/media-detail/{uid}', [HomeController::class, 'media'])->name('media.detail');
+
+Route::get('/sejarah', [HomeController::class, 'sejarah']);

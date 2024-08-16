@@ -46,7 +46,7 @@
                     <a class="nav-link" href="{{ url('/') }}#galeri">Galeri</a>
                 </li>
                 <li class="nav-item me-3">
-                    <a class="nav-link" href="{{ url('/') }}#footer">Tentang Kami</a>
+                    <a class="nav-link" href="/sejarah">Tentang Kami</a>
                 </li>
             </ul>
         </div>

@@ -22,7 +22,7 @@
     @include('Navbar')
 
 
-    <div id="wa-bubble" class="wa-bubble" style="position: fixed; z-index: 1000;bottom: 20px; left: 50px">
+    <div id="wa-bubble" class="wa-bubble" style="position: fixed; z-index: 1000;bottom: 50px; left: 50px">
         <a href="https://wa.me/{{ $data_foter[6]['Deskripsi']}}" target="_blank">
             <img src="img/Bubble WA.png" alt="WhatsApp" style="">
         </a>

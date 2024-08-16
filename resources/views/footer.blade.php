@@ -10,7 +10,7 @@
         top: 40%;
         left: 50%;
         width: 200vh;
-        height: 350px;
+        height: 150px;
         transform: translate(-50%, -50%);
         z-index: 1;
         /* memastikan background berada di belakang semua konten */
@@ -68,7 +68,7 @@
 <section id="footer" class="position-relative">
     <img src="img/Slice.png" alt="Background Image" class="background-image">
     <div class="container h-100">
-        <div class="row">
+        {{-- <div class="row">
             <div class="col-md-4 mb-4">
                 <h5>Sejarah</h5>
                 <p>
@@ -78,7 +78,7 @@
                             count($words) > 25 ? implode(' ', array_slice($words, 0, 25)) . '...' : $item->Deskripsi;
                     @endphp
                 <p>{{ $shortenedDescription }}</p>
-                {{-- {{ $data_foter[0]['Deskripsi'] }} --}}
+                
                 </p>
             </div>
             <div class="col-md-4 mb-4">
@@ -126,21 +126,30 @@
 
                 </p>
             </div>
-        </div>
+        </div> --}}
         <div class="container d-flex" style="margin-top: 0">
             <div class="col-12 d-flex justify-content-center">
                 <div class="lokasi d-flex align-items-center me-3 mt-5">
                     <img src="img/ion_location.png" alt="Location Icon" style="width: 39px; height: 39px;">
-                    <p class="mb-0" style="color: white; margin-left: 10px;">Puntir, Martopuro, Kec.Purwosari,
-                        Pasuruan</p>
+                    <p class="mb-0" style="color: white; margin-left: 10px;">
+                        {{ $data_foter->firstWhere('Nama', 'alamat')->Deskripsi ?? 'Alamat tidak ditemukan.' }}
+                    </p>
+                    
                 </div>
                 <div class="whatsapp d-flex align-items-center me-3 mt-5">
                     <img src="img/tdesign_call.png" alt="Location Icon" style="width: 39px; height: 39px;">
-                    <p class="mb-0" style="color: white; margin-left: 10px;">+62 81906153376</p>
+                    <p class="mb-0" style="color: white; margin-left: 10px;"><p class="mb-0" style="color: white; margin-left: 10px;">
+                        {{ $data_foter->firstWhere('Nama', 'nomorwa')->Deskripsi ?? 'Alamat tidak ditemukan.' }}
+                    </p>
+                    </p>
                 </div>
                 <div class="instagram d-flex align-items-center mt-5">
                     <img src="img/mdi_instagram.png" alt="Location Icon" style="width: 39px; height: 39px;">
-                    <p class="mb-0" style="color: white; margin-left: 10px;">@maggotcenterpasuruan</p>
+                    <p class="mb-0" style="color: white; margin-left: 10px;">
+                        <p class="mb-0" style="color: white; margin-left: 10px;">
+                            {{ $data_foter->firstWhere('Nama', 'instagram')->Deskripsi ?? 'Alamat tidak ditemukan.' }}
+                        </p>
+                    </p>
                 </div>
             </div>
 

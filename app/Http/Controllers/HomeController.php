@@ -164,4 +164,32 @@ class HomeController extends Controller
         }
         return "Gagal mengambil data dari API.";
     }
+
+    public function sejarah()
+    {
+        $token = 'a8F5h72kL9dG2eX3mQ0pZ4rC6vN1jT7bY8wU5sV9xD2gK1oL0tR4qW3mF7yH2uI8zO5pJ1vM3nE0cR6aQ9lX5r';
+        $response_foter = Http::withToken($token)->get('https://maggotapi.arriansoft.com/api/getAllInterface');
+
+        if ($response_foter->successful()) {
+            $dataFooter = $response_foter->json()['data'];
+
+            $data_foter = collect($dataFooter)->map(function ($dataFooter) {
+                return new footer((array) $dataFooter);
+            });
+
+            // Ambil item dengan Nama "sejarah"
+            $sejarah = $data_foter->firstWhere('Nama', 'sejarah');
+
+            // Ambil item dengan Nama "visi"
+            $visi = $data_foter->firstWhere('Nama', 'visi');
+
+            // Ambil item dengan Nama "misi"
+            $misi = $data_foter->firstWhere('Nama', 'misi');
+
+            // Kirim data ke view
+            return view('sejarah', compact('sejarah', 'visi', 'misi'));
+        }
+
+        return "Gagal mengambil data dari API.";
+    }
 }
